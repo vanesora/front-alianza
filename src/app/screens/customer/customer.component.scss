@@ -38,6 +38,43 @@
   }
 }
 
+.container-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(176, 220, 245, 0.904);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+
+    input {
+        border-radius: 5px;
+        height: 30px;
+        border: 1px solid rgb(65, 64, 64);
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .input-form{
+        display: flex;
+        justify-content: start;
+        width: 300px;
+        min-width: 90%;
+        max-width: 400px;
+        padding: 10px 0;
+        position: relative;
+
+        label{
+            width: 100px;
+        }
+
+        .mat-datepicker-toggle{
+            position: absolute;
+            left: 80px;
+            top: 5px;
+        }
+    }
+}
+
 @media only screen and (max-width: 600px) {
   .mat-mdc-form-field {
     width: 100%;

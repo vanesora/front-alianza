@@ -8,16 +8,16 @@
         <div class="container-scroll">
             <div class="container-table">
                 <div class="container-actions">
-                    <button mat-raised-button color="primary" class="icon" [ngStyle]="{ transform: 'scale(0.8)' }" (click)="createNew()">
+                    <button mat-raised-button color="primary" class="icon" (click)="createNew()">
                         <mat-icon>add</mat-icon>
                         New
                     </button>
-                    <button mat-raised-button color="primary" class="icon" [ngStyle]="{ transform: 'scale(0.8)' }">
+                    <button mat-raised-button color="primary" class="icon">
                         <mat-icon>download</mat-icon>
                         Export
                     </button>
                 </div>
-                <form class="container-filters w-100 d-flex search-text" [formGroup]="filterKeyFormGroup" style="font-size: 10px">
+                <form class="container-filters w-100 d-flex search-text" [formGroup]="filterKeyFormGroup" style="font-size: 10px; padding: 10px 0;">
                     <mat-form-field>
                         <input matInput appAutofocus placeholder="Enter shared key" formControlName="key" type="text"
                             required class="inputOutline" />
@@ -27,6 +27,55 @@
                         
                     </mat-form-field>
                 </form>
+                <button mat-raised-button color="primary" class="icon" (click)="viewFilters = !viewFilters">
+                    Advanced Search
+                </button>
+                <div class="row justify-content-around align-items-center" style="padding: 10px 0;" *ngIf="viewFilters">
+                    <form class="container-form w-100 d-flex search-text" [formGroup]="filtersFormGroup">
+                        <div class="input-form">
+                            <label>Name</label>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <input appAutofocus placeholder="" formControlName="name" type="text" required
+                                    class="inputOutline" />
+                            </div>
+                        </div>
+                        <div class="input-form">
+                            <label>Phone</label>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <input placeholder="" formControlName="phone" type="number" required class="inputOutline" />
+                            </div>
+                        </div>
+                        <div class="input-form">
+                            <label>E-mail</label>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <input placeholder="" formControlName="email" type="text" required class="inputOutline" />
+                            </div>
+                        </div>
+                        <div class="input-form">
+                            <label>Start Date</label>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <input placeholder="" formControlName="dateStart" type="text" required class="inputOutline"
+                                    [matDatepicker]="picker_start" style="padding-left: 35px; max-width: 250px;" />
+                                <mat-datepicker-toggle matSuffix [for]="picker_start"></mat-datepicker-toggle>
+                                <mat-datepicker #picker_start></mat-datepicker>
+                            </div>
+                        </div>
+
+                        <div class="input-form">
+                            <label>End Date</label>
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <input placeholder="" formControlName="dateEnd" type="text" required class="inputOutline"
+                                    [matDatepicker]="picker_end" style="padding-left: 35px; max-width: 250px;" />
+                                <mat-datepicker-toggle matSuffix [for]="picker_end"></mat-datepicker-toggle>
+                                <mat-datepicker #picker_end></mat-datepicker>
+                            </div>
+                        </div>
+        
+                        <button mat-raised-button color="primary" class="icon"(click)="loadData('filter')" style="width: 40px;">
+                                OK
+                            </button>
+                    </form>
+                </div>
                 <div class="table-container">
                 <table mat-table [dataSource]="dataSource">
 

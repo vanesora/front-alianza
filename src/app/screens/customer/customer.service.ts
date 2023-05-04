@@ -13,8 +13,8 @@ export class CustomerService {
     name?: string | null | undefined,
     email?: string | null | undefined,
     phone?: string | null | undefined,
-    dateStart?: Date | null | undefined,
-    dateEnd?: Date | null | undefined
+    dateStart?: string | null | undefined,
+    dateEnd?: string | null | undefined
   ): Promise<any> {
     if (id)
       return this.getTeamsFiltered(
@@ -35,8 +35,8 @@ export class CustomerService {
     name?: string  | null | undefined,
     email?: string  | null | undefined,
     phone?: string |  null | undefined,
-    dateStart?: Date | null | undefined,
-    dateEnd?: Date | null | undefined
+    dateStart?: string | null | undefined,
+    dateEnd?: string | null | undefined
   ) {
     if (id) {
       return this.dataApiService

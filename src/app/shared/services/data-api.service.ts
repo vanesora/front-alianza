@@ -47,7 +47,9 @@ export class DataApiService {
     let params = '';
     if(extraParams){
       Object.keys(extraParams)?.forEach((param) =>{
-        params= params + param + '=' + extraParams[param] + '&';
+        if(extraParams[param]){
+          params= params + param + '=' + extraParams[param] + '&';
+        }
       })
       params = params.substring(0, params.length - 1)
     }

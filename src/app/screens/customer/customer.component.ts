@@ -51,6 +51,8 @@ export class CustomerComponent implements OnInit {
     key: [''],
   });
 
+  public viewFilters= false;
+
   constructor(
     public configService: ConfigurationService,
     public customerService: CustomerService,
@@ -69,18 +71,20 @@ export class CustomerComponent implements OnInit {
       let result: any[] = [];
       if (!type) {
         result = await this.customerService.getCustomers();
+        this.viewFilters= false;
       } else if (type === 'key') {
         result = await this.customerService.getCustomers(
           this.filterKeyFormGroup.value.key
         );
+        this.viewFilters= false;
       } else {
         result = await this.customerService.getCustomers(
           null,
           this.filtersFormGroup.value.name,
           this.filtersFormGroup.value.email,
           this.filtersFormGroup.value.phone?.toString(),
-          this.filtersFormGroup.value.dateStart,
-          this.filtersFormGroup.value.dateEnd
+          this.filtersFormGroup.value.dateStart? moment(this.filtersFormGroup.value.dateStart).format('YYYY-MM-DD'): null,
+          this.filtersFormGroup.value.dateEnd? moment(this.filtersFormGroup.value.dateEnd).format('YYYY-MM-DD'): null
         );
       }
       this.dataSource.data = result?.map((data: any) => {
