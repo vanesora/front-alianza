@@ -1,0 +1,45 @@
+.search-text {
+  display: flex;
+  width: 100%;
+
+  .mdc-text-field {
+    border-radius: 25px;
+    border: 1px solid black;
+  }
+
+  .mat-mdc-form-field-icon-suffix {
+    border-left: 1px solid black;
+  }
+  button {
+    height: 54px !important;
+  }
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}
+
+.card-divisions {
+  max-width: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.container-actions{
+    margin-bottom: 1rem;
+}
+.filter-date{
+    display: flex;
+    justify-content: space-between;
+}
+.table-container {
+  max-width: 100%;
+  overflow: auto;
+  table {
+    min-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}

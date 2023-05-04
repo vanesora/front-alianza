@@ -1,0 +1,18 @@
+<div class="container-menu-list" [ngClass]="{ 'mobile': configService.screenWidth <= 880}">
+    <div class="container-button">
+        <img src="./../../../assets/img/logo.png" alt="" (click)="configService.toggle()">
+    </div>
+    <div class="item-selected">
+        <mat-icon class="icon">{{configService.selectMenu.icon}}</mat-icon>
+        <div>{{configService.selectMenu.text}}</div>
+    </div>
+    <div class="container-items">
+        <div class="items" *ngFor="let item of configService.menu">
+            <div>
+                <div class="item" (click)="configService.changeMenu(item)">
+                    <div class="text">{{item.text}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

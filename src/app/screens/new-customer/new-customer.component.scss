@@ -1,0 +1,53 @@
+.card-divisions {
+    background-color: rgba(176, 220, 245, 0.904);
+    width: 400px;
+    min-width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+input {
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid rgb(65, 64, 64);
+    width: 100%;
+    max-width: 400px;
+}
+
+.line {
+    height: 1px;
+    background-color: rgb(65, 64, 64);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1{
+    color: rgb(65, 64, 64);
+    margin: 0;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+
+    .input-form{
+        display: flex;
+        justify-content: start;
+        width: 300px;
+        min-width: 90%;
+        max-width: 400px;
+        padding: 10px 0;
+        position: relative;
+
+        label{
+            width: 100px;
+        }
+
+        .mat-datepicker-toggle{
+            position: absolute;
+            left: 80px;
+            top: 5px;
+        }
+    }
+}
