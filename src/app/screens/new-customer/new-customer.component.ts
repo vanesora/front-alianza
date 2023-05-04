@@ -54,7 +54,7 @@ export class NewCustomerComponent implements OnInit {
 
     return this.customerService.createCustomers(user).finally(()=>{
       this.configService.setLoadingPage(false);
-      this.router.navigate([`customer`]);
+      this.router.navigate([`customers`]);
     })
   }
 
